@@ -31,5 +31,8 @@ build/
 .vscode/
 
 ###SpringBoot###
+.git
+target
+.mvn
 mvnw
 mvnw.cmd
