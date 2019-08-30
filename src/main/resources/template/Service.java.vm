@@ -1,0 +1,31 @@
+package ${package}.${module}.service;
+
+import com.zhenghao.admin.common.entity.Page;
+import com.zhenghao.admin.common.entity.Result;
+import ${package}.${module}.entity.${className}Entity;
+
+import java.util.Map;
+
+/**
+ * ${comments}
+ *
+ * @author:${author}
+ * @Email :${email}
+ * @date :${datetime}
+ * ${className}Service.java
+ */
+public interface ${className}Service {
+
+	Page<${className}Entity> list${className}(Map<String, Object> params);
+
+    Result<${className}Entity> get${className}ById(Long ${pk.fieldName});
+
+    Result save${className}(${className}Entity ${objName});
+
+    Result update${className}(${className}Entity ${objName});
+
+    Result remove${className}(Long ${pk.fieldName});
+
+    Result batchRemove(Long[] ids);
+	
+}

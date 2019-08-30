@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.104:3306/test-admin?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: root
+
+##################mybatis####################
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.zhenghao.admin
+
+
+##################generator####################
+generator:
+  tableName: sys_user # 表名
+  module: auth # 系统模块，权限管理auth
+  functionCode: user # 功能编码，用户管理user
+  requestMapping: sys/user # 后台请求地址，用户管理sys/user
+  viewPath: system/user # 页面路径，用户管理system/user
+  type: 0 # 生成类型，0：生成包结构，1：只生成源代码
