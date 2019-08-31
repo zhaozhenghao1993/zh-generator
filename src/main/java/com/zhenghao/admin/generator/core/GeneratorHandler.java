@@ -1,7 +1,7 @@
 package com.zhenghao.admin.generator.core;
 
-import com.zhenghao.admin.generator.config.GeneratorConfig;
 import com.zhenghao.admin.generator.entity.ColumnEntity;
+import com.zhenghao.admin.generator.entity.GeneratorParamEntity;
 import com.zhenghao.admin.generator.entity.TableEntity;
 import com.zhenghao.admin.generator.util.DateUtils;
 import org.apache.commons.configuration2.Configuration;
@@ -37,7 +37,7 @@ public class GeneratorHandler {
     private GeneratorHandler() {
     }
 
-    public static void generatorCode(TableEntity table, List<ColumnEntity> columns, GeneratorConfig params, ZipOutputStream zip) {
+    public static void generatorCode(TableEntity table, List<ColumnEntity> columns, GeneratorParamEntity params, ZipOutputStream zip) {
         //配置信息
         Configuration config = getConfig();
         //表名转换成Java类名

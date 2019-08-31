@@ -1,7 +1,7 @@
-package com.zhenghao.admin.generator.config;
+package com.zhenghao.admin.generator.entity;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
  * 🙃
@@ -13,46 +13,48 @@ import org.springframework.context.annotation.Configuration;
  * @date :2019/04/20 15:43
  * GeneratorParamEntity.java
  */
-@Configuration
-public class GeneratorConfig {
+
+public class GeneratorParamEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 表名
      */
-    @Value("${generator.tableName}")
+    @NotBlank(message = "表名不能为空 !")
     private String tableName;
 
     /**
      * 系统模块，权限管理auth
      */
-    @Value("${generator.module}")
+    @NotBlank(message = "系统模块不能为空 !")
     private String module;
 
     /**
      * 功能编码，用户管理user
      */
-    @Value("${generator.functionCode}")
+    @NotBlank(message = "功能编码不能为空 !")
     private String functionCode;
 
     /**
      * 后台请求地址，用户管理sys/user
      */
-    @Value("${generator.requestMapping}")
+    @NotBlank(message = "后台请求地址不能为空 !")
     private String requestMapping;
 
     /**
      * 页面路径，用户管理system/user
      */
-    @Value("${generator.viewPath}")
+    @NotBlank(message = "页面路径不能为空 !")
     private String viewPath;
 
     /**
      * 生成类型，0：生成包结构，1：只生成源代码
      */
-    @Value("${generator.type}")
+    @NotBlank(message = "生成类型不能为空 !")
     private String type;
 
-    public GeneratorConfig() {
+    public GeneratorParamEntity() {
         super();
     }
 
@@ -102,5 +104,17 @@ public class GeneratorConfig {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "GeneratorParamEntity{" +
+                "tableName='" + tableName + '\'' +
+                ", module='" + module + '\'' +
+                ", functionCode='" + functionCode + '\'' +
+                ", requestMapping='" + requestMapping + '\'' +
+                ", viewPath='" + viewPath + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

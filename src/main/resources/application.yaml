@@ -7,6 +7,18 @@ spring:
     url: jdbc:mysql://192.168.0.104:3306/test-admin?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: root
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss #日期格式化
+    time-zone: GMT+8
+    serialization:
+      indent_output: true #格式化输出
+      fail_on_empty_beans: false #忽略无法转换的对象
+    defaultPropertyInclusion: NON_EMPTY #设置空如何序列化
+    deserialization:
+      fail_on_unknown_properties: false #允许对象忽略json中不存在的属性
+    parser:
+      allow_unquoted_control_chars: true #允许出现特殊字符和转义符
+      allow_single_quotes: true #允许出现单引号
 
 ##################mybatis####################
 mybatis:
@@ -14,13 +26,3 @@ mybatis:
     mapUnderscoreToCamelCase: true
   mapper-locations: classpath*:mapper/*.xml
   type-aliases-package: com.zhenghao.admin
-
-
-##################generator####################
-generator:
-  tableName: sys_user # 表名
-  module: auth # 系统模块，权限管理auth
-  functionCode: user # 功能编码，用户管理user
-  requestMapping: sys/user # 后台请求地址，用户管理sys/user
-  viewPath: system/user # 页面路径，用户管理system/user
-  type: 0 # 生成类型，0：生成包结构，1：只生成源代码

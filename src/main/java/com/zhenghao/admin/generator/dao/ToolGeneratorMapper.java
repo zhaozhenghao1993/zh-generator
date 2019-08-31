@@ -1,6 +1,7 @@
 package com.zhenghao.admin.generator.dao;
 
 import com.zhenghao.admin.generator.entity.ColumnEntity;
+import com.zhenghao.admin.generator.entity.Query;
 import com.zhenghao.admin.generator.entity.TableEntity;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,8 @@ import java.util.List;
 @MapperScan
 @Component
 public interface ToolGeneratorMapper {
+
+    List<TableEntity> listTable(Query query);
 
     TableEntity getTableByName(String tableName);
 
